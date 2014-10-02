@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------
 // <copyright file="program.cs" company="André Krämer - Software, Training & Consulting">
-//      Copyright (c) 2014 André Krämer
+//      Copyright (c) 2014 André Krämer http://andrekraemer.de
 // </copyright>
 // <summary>
 //  Open XML Demo Projekt
@@ -131,7 +131,7 @@ namespace OpenXmlDemo
                     documentText = new Regex("NachnameFeld", RegexOptions.IgnoreCase).Replace(documentText,
                         attendee.LastName);
 
-                    documentText = new Regex("VomFeld", RegexOptions.IgnoreCase).Replace(documentText,
+                    documentText = new Regex("VonFeld", RegexOptions.IgnoreCase).Replace(documentText,
     training.From.ToShortDateString());
 
                     documentText = new Regex("BisFeld", RegexOptions.IgnoreCase).Replace(documentText,
@@ -424,7 +424,7 @@ namespace OpenXmlDemo
         /// <summary>
         /// Legt Demo Daten an
         /// </summary>
-        /// <returns>Demo DAten</returns>
+        /// <returns>Demo Daten</returns>
         public static Training GenerateSampleData()
         {
             var training = new Training
@@ -437,7 +437,7 @@ namespace OpenXmlDemo
             training.Contents.Add("Überblick Open XML SDK");
             training.Contents.Add("Lesen von Dokumenteigenschaften");
             training.Contents.Add("Erstellen von neuen Dokumenten");
-            training.Contents.Add("Lesenen von bestehenden Dokumenten");
+            training.Contents.Add("Lesen von bestehenden Dokumenten");
             training.Contents.Add("Verändern bestehender Dokumente");
 
             training.Attendees.Add(new Person { FirstName = "Wilhelm", LastName = "Brause", Title = "Herr" });
