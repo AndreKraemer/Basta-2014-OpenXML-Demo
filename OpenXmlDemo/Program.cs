@@ -441,7 +441,7 @@ namespace OpenXmlDemo
             training.Contents.Add("Verändern bestehender Dokumente");
 
             training.Attendees.Add(new Person { FirstName = "Wilhelm", LastName = "Brause", Title = "Herr" });
-            training.Attendees.Add(new Person { FirstName = "Schmitz", LastName = "Peter", Title = "Herr" });
+            training.Attendees.Add(new Person { FirstName = "Peter", LastName = "Schmitz", Title = "Herr" });
             training.Attendees.Add(new Person { FirstName = "Laura", LastName = "Buitoni", Title = "Frau" });
 
 
