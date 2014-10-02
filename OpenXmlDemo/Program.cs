@@ -96,7 +96,7 @@ namespace OpenXmlDemo
             foreach (var attendee in training.Attendees)
             {
                 var destinationFileName = template.Replace(".docx",
-                    string.Format("{0} {1} {2} {3}.docx", training.Title, attendee.FirstName, attendee.LastName,
+                    string.Format(" {0} {1} {2} {3}.docx", training.Title, attendee.FirstName, attendee.LastName,
                         training.From.ToString("yyyy-MM-dd")));
                 File.Copy(template, destinationFileName, true);
 
@@ -131,6 +131,12 @@ namespace OpenXmlDemo
                     documentText = new Regex("NachnameFeld", RegexOptions.IgnoreCase).Replace(documentText,
                         attendee.LastName);
 
+                    documentText = new Regex("VomFeld", RegexOptions.IgnoreCase).Replace(documentText,
+    training.From.ToShortDateString());
+
+                    documentText = new Regex("BisFeld", RegexOptions.IgnoreCase).Replace(documentText,
+    training.To.ToShortDateString());
+
 
                     using (var sw = new StreamWriter(
                         document.MainDocumentPart.GetStream(FileMode.Create)))
@@ -138,7 +144,7 @@ namespace OpenXmlDemo
                         sw.Write(documentText);
                     }
                     document.MainDocumentPart.Document.Save();
-                    Console.WriteLine("Datei {0} erzeugt", destinationFileName);
+                    Console.WriteLine("Datei {0} im Programmordner erzeugt", destinationFileName);
                 }
             }
         }
@@ -436,7 +442,7 @@ namespace OpenXmlDemo
 
             training.Attendees.Add(new Person { FirstName = "Wilhelm", LastName = "Brause", Title = "Herr" });
             training.Attendees.Add(new Person { FirstName = "Schmitz", LastName = "Peter", Title = "Herr" });
-            training.Attendees.Add(new Person { FirstName = "Buitoni", LastName = "Laura", Title = "Frau" });
+            training.Attendees.Add(new Person { FirstName = "Laura", LastName = "Buitoni", Title = "Frau" });
 
 
             return training;
